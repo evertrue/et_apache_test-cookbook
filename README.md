@@ -10,9 +10,12 @@ The [README for `apache2` v2.0.0](https://github.com/viverae-cookbooks/apache2/t
 
 Some specs:
 
-* Code should live in a public Git repo, `et_apache_test-cookbook` is a great name to use (follows our cookbook naming convention)
+* Please fork this repo & submit your code as a pull request
 * Use Ubuntu 12.04
 * Disable the default virtual host using only attributes provided by the `apache2` cookbook (no recipe code)
 * Set up your own virtual host using the provided [<abbr title="Light Weight Resource Provider">LWRP</abbr>](https://docs.getchef.com/lwrp.html) that comes with `apache2`
 * Ensure PHP is available for use by Apache
     - The mechanism for installing PHP is left up to the candidate; either a cookbook-based or package-based installation are acceptable
+* Use [Test Kitchen](http://kitchen.ci) to test integration of your cookbook
+    - Recommendation is to use [Vagrant](vagrantup.com) for the virtual machine creation
+    - Alternatively, a cloud service could be used, but this is not required by any means
