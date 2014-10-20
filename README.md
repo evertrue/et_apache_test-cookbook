@@ -13,7 +13,8 @@ Some specs:
 * Please fork this repo & submit your code as a pull request
 * Use Ubuntu 12.04
 * Disable the default virtual host using only attributes provided by the `apache2` cookbook (no recipe code)
-* Set up your own virtual host using the provided [<abbr title="Light Weight Resource Provider">LWRP</abbr>](https://docs.getchef.com/lwrp.html) that comes with `apache2`
+* Set up your own virtual host using the provided [`web_app` definition](https://github.com/viverae-cookbooks/apache2/tree/v2.0.0#web_app) that comes with `apache2`
+    - Further reading on [Chef Definitions](https://docs.getchef.com/essentials_cookbook_definitions.html)
 * Ensure PHP is available for use by Apache
     - The mechanism for installing PHP is left up to the candidate; either a cookbook-based or package-based installation are acceptable
 * Use [Test Kitchen](http://kitchen.ci) to test integration of your cookbook
