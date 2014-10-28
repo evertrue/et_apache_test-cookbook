@@ -21,7 +21,7 @@ end
 
 # Note that these are dependent on node attributes which 
 # I can't seem to access in this test file
-describe file("/srv/www/test-site.evertrue.com/index.html") do
+describe file("/srv/www/test-site.evertrue.com/index.php") do
   it { should be_file }
 end
 

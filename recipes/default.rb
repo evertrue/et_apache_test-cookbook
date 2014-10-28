@@ -27,7 +27,7 @@ directory "/srv/www/#{node['et_apache_test']['web_app']['name']}" do
   recursive true
 end
 
-cookbook_file "/srv/www/#{node['et_apache_test']['web_app']['name']}/index.html" do
+cookbook_file "/srv/www/#{node['et_apache_test']['web_app']['name']}/index.php" do
   mode '0644'
   owner 'www-data'
   group 'www-data'
