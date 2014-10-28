@@ -7,6 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# Install the PHP5 Package
+package 'php5'
+
+# Install Apache
 include_recipe 'apache2'
 
 # default site: disable
