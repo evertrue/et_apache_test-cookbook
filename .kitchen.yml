@@ -7,10 +7,10 @@ provisioner:
 
 platforms:
   - name: ubuntu-12.04
-
-suites:
-  - name: ubuntu-12.04
     run_list:
         - "recipe[apt]"
+suites:
+  - name: default
+    run_list:
         - "recipe[et_apache_test::default]"
     attributes:
