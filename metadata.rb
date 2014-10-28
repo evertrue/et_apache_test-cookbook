@@ -6,3 +6,5 @@ description      'Installs/Configures et_apache_test'
 long_description 'Installs/Configures et_apache_test'
 version          '0.1.0'
 
+depends 'apache2', '~> 2.0.0'
+
