@@ -21,3 +21,21 @@ end
 # enable php5 module
 apache_module "php5"
 
+# Create Document Root for new Web App
+directory "/srv/www/#{node['et_apache_test']['web_app']['name']}" do
+  action :create
+  recursive true
+end
+
+cookbook_file "/srv/www/#{node['et_apache_test']['web_app']['name']}/index.html" do
+  mode '0644'
+  owner 'www-data'
+  group 'www-data'
+end
+
+# Create Web App
+web_app node['et_apache_test']['web_app']['name'] do
+  server_name node['hostname']
+  server_aliases [node['fqdn'], node['et_apache_test']['web_app']['name']]
+  docroot "/srv/www/#{node['et_apache_test']['web_app']['name']}"
+end

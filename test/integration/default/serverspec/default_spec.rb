@@ -8,14 +8,28 @@ describe package('apache2'), :if => os[:family] == 'ubuntu' do
   it { should be_installed }
 end
 
+# ensure that apache2 is installed and running
 describe service('apache2'), :if => os[:family] == 'ubuntu' do
   it { should be_enabled }
   it { should be_running }
 end
 
+# ensure port 80 is open and listening
 describe port(80) do
   it { should be_listening }
-end# Ensure that PHP is installed
+end
+
+# Note that these are dependent on node attributes which 
+# I can't seem to access in this test file
+describe file("/srv/www/test-site.evertrue.com/index.html") do
+  it { should be_file }
+end
+
+describe file("/srv/www/test-site.evertrue.com/") do
+  it { should be_directory }
+end
+
+# Ensure that PHP is installed
 describe package('php5'), :if => os[:family] == 'ubuntu' do
  it { should be_installed }
 end
