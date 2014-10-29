@@ -1,10 +1,11 @@
 # et_apache_test-cookbook
 
-TODO: Enter the cookbook description here.
+This Cookbook provisions a Ubuntu 12.04 machine with Apache and PHP with a new VirtualHost.
 
 ## Supported Platforms
 
-TODO: List your supported platforms.
+* Ubuntu 12.04
+
 
 ## Attributes
 
@@ -16,10 +17,10 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['et_apache_test']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['et_apache_test']['web_app']['name']</tt></td>
+    <td>String</td>
+    <td>The name of the webapp (recommend primary url)</td>
+    <td><tt>`test-site.evertrue.com`</tt></td>
   </tr>
 </table>
 
@@ -39,4 +40,4 @@ Include `et_apache_test` in your node's `run_list`:
 
 ## License and Authors
 
-Author:: YOUR_NAME (<YOUR_EMAIL>)
+Author:: EverTrue and Eddie Hurtig (<hurtige@ccs.neu.edu>)

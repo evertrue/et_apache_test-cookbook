@@ -2,7 +2,7 @@
 # Cookbook Name:: et_apache_test
 # Recipe:: default
 #
-# Copyright (C) 2014 YOUR_NAME
+# Copyright (C) 2014 Evertrue, Inc and Eddie Hurtig
 #
 # All rights reserved - Do Not Redistribute
 #

@@ -1,6 +1,6 @@
 name             'et_apache_test'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'EverTrue and Eddie Hurtig'
+maintainer_email 'hurtige@ccs.neu.edu'
 license          'All rights reserved'
 description      'Installs/Configures et_apache_test'
 long_description 'Installs/Configures et_apache_test'
