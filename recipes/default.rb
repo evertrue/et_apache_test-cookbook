@@ -7,22 +7,21 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# Install the PHP5 Package
-package 'php5'
 # Ensure apt is happy before proceeding
 # specifically 'apt-get update' needs to be run
 include_recipe 'apt'
 
+# Install PHP
+include_recipe 'php'
+
 # Install Apache
 include_recipe 'apache2'
+include_recipe "apache2::mod_php5" 
 
 # default site: disable
 apache_site '000-default' do
   enable false
 end   
-
-# enable php5 module
-apache_module "php5"
 
 # Create Document Root for new Web App
 directory "/srv/www/#{node['et_apache_test']['web_app']['name']}" do
