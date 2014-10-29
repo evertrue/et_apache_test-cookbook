@@ -21,6 +21,7 @@ include_recipe "apache2::mod_php5"
 # default site: disable
 apache_site '000-default' do
   enable false
+  notifies :restart, "service[apache2]", :delayed
 end   
 
 # Create Document Root for new Web App
@@ -40,4 +41,7 @@ web_app node['et_apache_test']['web_app']['name'] do
   server_name node['hostname']
   server_aliases [node['fqdn'], node['et_apache_test']['web_app']['name']]
   docroot "/srv/www/#{node['et_apache_test']['web_app']['name']}"
+  notifies :restart, "service[apache2]", :delayed
 end
+
+
