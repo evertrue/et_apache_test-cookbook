@@ -34,6 +34,16 @@ describe package('php5'), :if => os[:family] == 'ubuntu' do
  it { should be_installed }
 end
 
+describe file('/etc/alternatives/php') do 
+  it { should be_file }
+  it { should be_owned_by 'root' }
+  it { should be_executable.by_user('www-data') }
+end 
+
+describe file('/usr/bin/php') do
+  it { should be_linked_to '/etc/alternatives/php' }
+end
+
 # Some Example PHP ini configuration variables
 describe 'PHP config parameters' do
  context  php_config('default_mimetype') do
