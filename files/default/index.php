@@ -1,2 +1,2 @@
 <?php 
-echo 'Hosting Space Ready for Deployment'
+echo "Hosting Space Ready for Deployment\n";
