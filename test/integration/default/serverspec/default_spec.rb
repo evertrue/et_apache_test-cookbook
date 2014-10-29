@@ -19,14 +19,14 @@ describe port(80) do
   it { should be_listening }
 end
 
-# Note that these are dependent on node attributes which 
-# I can't seem to access in this test file
-describe file("/srv/www/test-site.evertrue.com/index.php") do
-  it { should be_file }
-end
-
+# Ensure that docroot for web app exists
 describe file("/srv/www/test-site.evertrue.com/") do
   it { should be_directory }
+end
+
+# Ensure that Placeholder php file for web app exists
+describe file("/srv/www/test-site.evertrue.com/index.php") do
+  it { should be_file }
 end
 
 # Ensure that PHP is installed
@@ -34,12 +34,14 @@ describe package('php5'), :if => os[:family] == 'ubuntu' do
  it { should be_installed }
 end
 
+# Ensure php binary is installed
 describe file('/etc/alternatives/php') do 
   it { should be_file }
   it { should be_owned_by 'root' }
   it { should be_executable.by_user('www-data') }
 end 
 
+# Ensure that the php binary is linked to from /usr/bin/
 describe file('/usr/bin/php') do
   it { should be_linked_to '/etc/alternatives/php' }
 end
