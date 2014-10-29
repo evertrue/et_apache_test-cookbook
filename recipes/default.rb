@@ -9,6 +9,9 @@
 
 # Install the PHP5 Package
 package 'php5'
+# Ensure apt is happy before proceeding
+# specifically 'apt-get update' needs to be run
+include_recipe 'apt'
 
 # Install Apache
 include_recipe 'apache2'
