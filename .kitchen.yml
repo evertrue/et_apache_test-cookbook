@@ -11,5 +11,8 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[git::default]
+      - recipe[apache2::default]
     attributes:
+    excludes: 
+      - a2ensite
+    
