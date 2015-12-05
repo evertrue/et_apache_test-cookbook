@@ -1,7 +1,11 @@
-include_recipe 'apache2::default'
+#
+# Cookbook Name:: etapachetest
+# Recipe:: default
+#
+# Copyright (C) 2015 YOUR_NAME
+#
+# All rights reserved - Do Not Redistribute
+#
 
-#node['apache']['package']
 
-
-
-
+include_recipe 'apache2'
