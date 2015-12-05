@@ -1,0 +1,10 @@
+Changing name of cookbook 
+from: 	et_apache_test-cookbook 
+to:		etapache
+	edited: Vagrantfile
+			metadata.rb
+			CHANGELOG.md
+			Berksfile.lock
+			recipes/default.rb
+			.vagrant/machines/default/virtualbox/synced_folders
+			.kitchen/default-ubuntu-1404.tml

@@ -8,3 +8,8 @@
 #
 
 include_recipe 'apache2'
+
+# disable default site
+apache_site '000-default' do
+  enable false
+end
