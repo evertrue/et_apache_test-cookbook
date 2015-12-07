@@ -21,7 +21,7 @@ end
 # Set up own virtual host 
 web_app "my_app" do
 	template 'et_apache_test-cookbook.erb'
-	server_name node['et_apache_test-cookbook']['hostname']
+	server_name 'example.com'
 end
 
 # enable php
