@@ -18,6 +18,14 @@ apache_site '000-default' do
   enable false
 end
 
+# Set up own virtual host 
+web_app "my_app" do
+	template 'et_apache_test-cookbook.erb'
+	server_name node['et_apache_test-cookbook']['hostname']
+end
+
+# enable php
 apache_module "php5" do 
 	filename "libphp5.so"
 end
+
