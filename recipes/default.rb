@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: et_apache_test-cookbook/
+# Cookbook Name:: et_apache_test
 # Recipe:: default
 #
 # Copyright (C) 2015 YOUR_NAME
