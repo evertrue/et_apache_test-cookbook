@@ -12,4 +12,5 @@ platforms:
 suites:
   - name: default
     run_list:
+      - et_apache_test::default
     attributes:
