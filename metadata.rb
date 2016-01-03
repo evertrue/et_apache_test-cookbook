@@ -5,3 +5,6 @@ license          'All rights reserved'
 description      'Installs/Configures et_apache_test'
 long_description 'Installs/Configures et_apache_test'
 version          '0.1.0'
+
+depends 'php'
+depends 'apache2'
