@@ -23,3 +23,10 @@ cookbook_file "/srv/www/#{node['et_apache_test']['web_app']['name']}/index.php" 
   owner 'www-data'
   group 'www-data'
 end
+
+web_app node['et_apache_test']['web_app']['name'] do
+  server_name node['hostname']
+  server_aliases [node['fqdn'], node['et_apache_test']['web_app']['name']]
+  docroot "/srv/www/#{node['et_apache_test']['web_app']['name']}"
+  cookbook 'apache2'
+end
