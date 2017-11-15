@@ -1,0 +1,35 @@
+#kitchen.ymlófor-EC2-machinesóóóós-------aws account required 
+---
+driver:
+ name: ec2
+ instance_type: t2.medium
+ aws_ssh_key_id: testmachine-dev_ap-southeast-1_jagat
+ require_chef_omnibus: true
+ subnet_id: "subnet-93a962e4"
+ security_group_ids: ["sg-03a62366"]
+ region: ap-southeast-1
+ availability_zone: ap-southeast-1a
+ require_chef_omnibus: true
+ associate_public_ip: true
+ interface: public
+provisioner:
+ name: chef_solo
+transport:
+ username: ec2-user
+ ssh_key: /Users/lp-oe-jal-062/Dropbox/keys/DevOps/kayako-dev_ap-southeast-1_jagat.pem
+ connection_timeout: 10
+ connection_retries: 5
+platforms:
+ - name: "Amazon"
+   driver:
+     image_id: "ami-68d8e93a"
+suites:
+ - name: default
+   data_bags_path: "test/integration/default/data_bags/"
+   run_list:
+     - recipe[yum::default]
+     - recipe[yum-epel::default]
+     - recipe[build-essential::default]
+     - recipe[ohai::default]
+     - recipe[varnish::api]
+
