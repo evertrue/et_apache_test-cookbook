@@ -1,0 +1,36 @@
+#To run data bags:
+add following is kitchen: Apache
+
+httpd_service 'default' do
+  action :create
+end
+
+httpd_service 'instance-1' do
+  listen_ports ['81', '82']
+  action :create
+end
+
+httpd_service 'an websites' do
+  instance_name 'bob'
+  servername 'www.computers.biz'
+  version '2.4'
+  mpm 'event'
+  threadlimit '4096'
+  listen_ports ['1234']
+  action :create
+end
+
+end
+
+httpd_module 'el dap' do
+  module_name 'ldap'
+  action :create
+end
+
+httpd_module 'auth_pgsql' do
+  instance 'instance-2'
+  action :create
+end
+
+
+
