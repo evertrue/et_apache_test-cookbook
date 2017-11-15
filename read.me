@@ -1,0 +1,146 @@
+http://kitchen.ci/docs/getting-started/
+
+Prerequisites:
+1. Virtual Box 
+2. Vagrent, you may download vagrant dmg from http://www.vagrantup.com/downloads.html
+
+Installation and Configuration on Mac:
+
+1.  Create a seperate directory, like I created ëkitchení  under ë/Users/mayankí. #mkdir /Users/mayank/kitchen
+2.  Change directory to ëkitchení directory, #cd   /Users/mayank/kitchen
+3.  Install 'test-kitchení from ruby gems. #sudo gem install test-kitchen
+4. Create a initial configuration file ëkitchen.yml'  to Test kitchen using ëkitchen inití subcommand. #kitchen init --driver=kitchen-vagrant 
+5. It Kitchen directory is synced with your git account, you should add kitchen.yml in gitignore. #git add .gitignore .kitchen.yml
+6. Copy all cookbook to ëkitchení directory or create new cookbooks. #cp -rf  cp -rf /Users/mayank/cluster-chef/chef-repo/* /Users/mayank/kitchen/ 
+7. Create a instance. #kitchen create default-ubuntu14.04
+8. Edit .kitchen.yml with the run list, I have following at my end:
+-------
+---
+
+driver:
+name: vagrant
+customize:
+memory: 512
+cpus: 1
+
+provisioner:
+name: chef_solo
+
+platforms:
+- name: Ubuntu14.04
+driver:
+box: Ubuntu14.04
+box_url: "https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box"
+- name: Ubuntu-14.04
+driver:
+box: Ubuntu-14.04
+box_url: "https://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box"
+
+suites:
+- name: default
+run_list:
+kit    
+- recipe[yum-epel::default]
+------- 
+9. Now its time to converge cookbooks on instance setup.# sudo kitchen converge default-ubuntu-14.04
+10. Login to instance to check. # kitchen login default-ubuntu-14.04
+11. For testing this in future you may add the cookbook recipe in kitchen.yml file and converge the instance. 
+12. To remove Instance. # kitchen destroy default-ubuntu-14.04
+13. As per the default  kitchen.yml file the instance of cents6.6 and 5.11 can be created but if I want a specific OS version, I need to download old box from:
+https://github.com/chef/bento/blob/master/OLD-BOXES.md
+the download can be done via kitchen.yml file:
+-------Snip------
+- name: ubuntu-14.04
+driver:
+box: default-ubuntu-14.04
+box_url: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
+-------Snip------
+and run knife create default-ubuntu-14.04converge
+----------
+==> default: Adding box 'default-ubuntu-14.04' (v0) for provider: virtualbox
+           default: Downloading: http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box
+==> default: Successfully added box 'default-ubuntu-14.04' (v0) for 'virtualbox'!
+       ==> default: Importing base box 'default-ubuntu-14.04'...
+----------
+ 
+To run data bags:
+
+add following is kitchen: Apache
+httpd_service 'default' do
+  action :create
+end
+
+httpd_service 'instance-1' do
+  listen_ports ['81', '82']
+  action :create
+end
+
+httpd_service 'an websites' do
+  instance_name 'bob'
+  servername 'www.computers.biz'
+  version '2.4'
+  mpm 'event'
+  threadlimit '4096'
+  listen_ports ['1234']
+  action :create
+end
+
+
+;
+óóóknichen.ymlófor-EC2-machinesóóóós-------aws account required 
+---
+driver:
+ name: ec2
+ instance_type: t2.medium
+ aws_ssh_key_id: testmachine-dev_ap-southeast-1_jagat
+ require_chef_omnibus: true
+ subnet_id: "subnet-93a962e4"
+ security_group_ids: ["sg-03a62366"]
+ region: ap-southeast-1
+ availability_zone: ap-southeast-1a
+ require_chef_omnibus: true
+ associate_public_ip: true
+ interface: public
+provisioner:
+ name: chef_solo
+transport:
+ username: ec2-user
+ ssh_key: /Users/lp-oe-jal-062/Dropbox/keys/DevOps/kayako-dev_ap-southeast-1_jagat.pem
+ connection_timeout: 10
+ connection_retries: 5
+platforms:
+ - name: "Amazon"
+   driver:
+     image_id: "ami-68d8e93a"
+suites:
+ - name: default
+   data_bags_path: "test/integration/default/data_bags/"
+   run_list:
+     - recipe[yum::default]
+     - recipe[yum-epel::default]
+     - recipe[build-essential::default]
+     - recipe[ohai::default]
+     - recipe[varnish::api]
+óóóó---
+To Test:
+httpd_module
+The httpd_module resource is responsible ensuring that an Apache module is installed on the system, as well as ensuring a load configuration snippet is dropped off at the appropriate location.
+Code:
+httpd_module 'ssl' do
+  action :create
+end
+
+httpd_module 'el dap' do
+  module_name 'ldap'
+  action :create
+end
+
+httpd_module 'auth_pgsql' do
+  instance 'instance-2'
+  action :create
+end
+
+
+
+
+
