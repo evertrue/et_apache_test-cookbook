@@ -1,4 +1,4 @@
-metadata.rb
+#metadata.rb
 # Encoding: utf-8
 name 'phpstack'
 maintainer 'Rackspace'
