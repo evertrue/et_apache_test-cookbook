@@ -1,7 +1,7 @@
 # lamp_stack
 
 This cookbook implements the wrapper cookbook pattern to configure attributes, call resources or
-run recipes from the [Apache2](https://github.com/elastic/cookbook-elasticsearch), PHP and Apt community cookbooks. This cookbook targets the Lamp Stack standalone deployments.
+run recipes from the [Apache2](https://github.com/viverae-cookbooks/apache2/tree/v3.1.0), PHP and Apt community cookbooks. This cookbook targets the Lamp Stack standalone deployments.
 
 ## Platforms
 
