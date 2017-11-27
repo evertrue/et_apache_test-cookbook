@@ -4,7 +4,7 @@ maintainer_email 'kumar.gajapaka@gmail.com'
 license 'all_rights'
 description 'Wrapper Cookbook for lamp_stack Cookbook'
 long_description 'Wrapper Cookbook for lamp_stack Cookbook'
-issues_url 'https://projects.gci.com/jira'
+issues_url 'https://github.com/omkumar0904/et_apache_test-cookbook/edit/master/lamp_stack/'
 source_url 'https://github.com/omkumar0904/et_apache_test-cookbook/edit/master/lamp_stack/'
 version '0.1.0'
 chef_version '>= 12' if respond_to?(:chef_version)
