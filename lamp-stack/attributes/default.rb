@@ -1,1 +1,1 @@
-default['et_apache_test']['web_app']['name'] = 'evertrue-test.com'
+default['lamp-stack']['web_app']['name'] = 'evertrue-test.com'
