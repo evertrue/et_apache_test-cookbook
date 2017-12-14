@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2015-2016 Skyhook Wireless
+# Copyright (C) 2015-2017 Nico Kadel-Garcia <nkadel@gmail.com>
 #
 # Makefile for chef-solo - pull from git, run Berksfile, and run chef
 #	Note logging of verbose log files in pull.out, chef-solo.out, etc.
