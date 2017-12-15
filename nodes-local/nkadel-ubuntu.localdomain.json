@@ -2,6 +2,6 @@
     "packages-cookbook": ["php"],
     "run_list": [
 	"recipe[php]",
-	"role[apache2_example]"
+	"role[local-web_app]"
     ]
 }
