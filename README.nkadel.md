@@ -1,4 +1,6 @@
-From Nico Kadel-Garcia <nkadel@gtmail.com>:
+#
+# Copyright (C) 2015-2017 Nico Kadel-Garcia <nkadel@gmail.com>
+#
 
 As a matter of policy, with new setups, I try to log all steps so that
 others can report the procedures.
