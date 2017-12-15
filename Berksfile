@@ -9,3 +9,4 @@ cookbook "php"	# Default php cookbook
 
 # Locally source controlled cookbook, if needed
 #cookbook "apache2", path: "cookbooks-local/apache2"
+cookbook "local-web_app", path: "cookbooks-local/local-web_app"
