@@ -1,5 +1,24 @@
 DEPENDENCIES
   apache2
+  php
 
 GRAPH
   apache2 (5.0.1)
+  build-essential (8.0.4)
+    mingw (>= 1.1)
+    seven_zip (>= 0.0.0)
+  compat_resource (12.19.0)
+  mingw (2.0.1)
+    seven_zip (>= 0.0.0)
+  mysql (8.5.1)
+  ohai (5.2.0)
+  php (4.5.0)
+    build-essential (>= 0.0.0)
+    mysql (>= 6.0.0)
+    yum-epel (>= 0.0.0)
+  seven_zip (2.0.2)
+    windows (>= 1.2.2)
+  windows (3.4.1)
+    ohai (>= 4.0.0)
+  yum-epel (2.1.2)
+    compat_resource (>= 12.16.3)
