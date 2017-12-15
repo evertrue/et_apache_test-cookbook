@@ -2,6 +2,7 @@
 source "https://supermarket.getchef.com"
 
 cookbook "apache2"	# Default httpd cookbook
+cookbook "php"	# Default php cookbook
 
 # Locked github repos for tagged or hash identified version
 #cookbook "apache2", git: "https://github.com/sous-chefs/apache2", tag: "v5.0.1"
