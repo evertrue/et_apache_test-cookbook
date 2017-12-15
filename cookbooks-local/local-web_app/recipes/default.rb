@@ -2,7 +2,7 @@
 # Cookbook:: local-web_app
 # Recipe:: default
 #
-# Copyright:: 2017, Nico Kadel-Garcia, All Rights Reserved.
+# Copyright:: 2017, Nico Kadel-Garcia, Apache Licnse 2.0.
 
 web_app "local-web_app" do
   server_name node['local-web_app']['virtualhost']
