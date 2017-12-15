@@ -25,8 +25,8 @@ COOKBOOKSLINK = cookbooks
 #HOST = `uname -n`
 # Use --fqdn
 HOST = `hostname --fqdn`
-DEFAULTNODE = $(PWD)/nodes.tmpl/default.json
-NODE = $(PWD)/nodes.tmpl/$(HOST).json
+DEFAULTNODE = $(PWD)/nodes-local/default.json
+NODE = $(PWD)/nodes-local/$(HOST).json
 # chef-solo configuration to find nodes, databags
 SOLO = solo.rb
 # chef-solo configuration for clients
@@ -83,7 +83,7 @@ $(NODE):
 	@case $(HOST) in \
 	    template1-*) \
 		echo "Linking template1.json.tmpl template to $(NODE)"; \
-		ln -sf ../nodes.tmpl/template1.json.tmpl $(NODE); \
+		ln -sf ../nodes-local/template1.json.tmpl $(NODE); \
 		;; \
 	esac
 
