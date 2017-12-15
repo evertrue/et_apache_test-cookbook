@@ -7,4 +7,4 @@ cookbook "apache2"	# Default httpd cookbook
 #cookbook "apache2", git: "https://github.com/sous-chefs/apache2", tag: "v5.0.1"
 
 # Locally cookbook, if needed
-#cookbook "apache2", path: "ever_cookbooks/apache2"
+#cookbook "apache2", path: "cookbooks-local/apache2"
