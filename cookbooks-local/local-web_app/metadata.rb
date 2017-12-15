@@ -1,23 +1,27 @@
+
 name 'local-web_app'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
+maintainer 'Nico Kadel-Garcia'
+maintainer_email 'nkadel@gmail.com'
+license 'Apache 2.0'
 description 'Installs/Configures local-web_app'
 long_description 'Installs/Configures local-web_app'
 version '0.1.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
-# The `issues_url` points to the location where issues for this cookbook are
-# tracked.  A `View Issues` link will be displayed on this cookbook's page when
-# uploaded to a Supermarket.
-#
-# issues_url 'https://github.com/<insert_org_here>/local-web_app/issues'
+# Update if code ever gets merged
+issues_url 'https://github.com/nkadel/nkadel_et_apache_test-cookbook'
+source_url 'https://github.com/nkadel/nkadel_et_apache_test-cookbook'
 
-# The `source_url` points to the development repository for this cookbook.  A
-# `View Source` link will be displayed on this cookbook's page when uploaded to
-# a Supermarket.
-#
-# source_url 'https://github.com/<insert_org_here>/local-web_app'
+# List is somewhat tentative, not all test platforms available
+supports 'amazon'
+supports 'centos'
+supports 'redhat'
+supports 'debian'
+supports 'fedora'
+supports 'oracle'
+supports 'scientific'
+supports 'ubuntu'
 
+# Used for web_app module and template
 depends 'apache2'
 
