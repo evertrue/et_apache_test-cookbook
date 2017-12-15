@@ -146,5 +146,6 @@ clean:
 	rm -f *.out
 
 distclean: clean
+	rm -rf nodes
 	git clean -x -d -f
 
