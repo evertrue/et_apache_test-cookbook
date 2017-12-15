@@ -25,7 +25,7 @@ COOKBOOKSLINK = cookbooks
 #HOST = `uname -n`
 # Use --fqdn
 HOST = `hostname --fqdn`
-DEFAULTNODE = $(PWD)/nodes-local/default.json
+DEFAULTNODE = $(PWD)/nodes-local/default.json.tmpl
 NODE = $(PWD)/nodes-local/$(HOST).json
 # chef-solo configuration to find nodes, databags
 SOLO = solo.rb

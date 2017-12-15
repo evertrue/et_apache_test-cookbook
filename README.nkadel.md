@@ -18,10 +18,10 @@ others can report the procedures.
   * * Deploy via separate channel, do not keep in git repo
   * encrypted_data_bag_secret	'/etc/chef/encrypted_data_bag_secret'
 
-* Create node configuration templates under nodes.tmpl/
+* Create node configuration templates under nodes-local/
 
-* nodes.tmpl/$HOSTNAME.json	for node specific config
-* nodes.tmpl/[template].json.tmpl	 for templates based on hostname
-* nodes.tmpl/default.json.tmpl	 for default template
+* nodes-local/$HOSTNAME.json	for node specific config
+* nodes-local/[template].json.tmpl	 for templates based on hostname
+* nodes-local/default.json.tmpl	 for default template
 
 
