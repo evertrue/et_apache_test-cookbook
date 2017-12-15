@@ -11,6 +11,7 @@ GRAPH
     seven_zip (>= 0.0.0)
   compat_resource (12.19.0)
   local-web_app (0.1.0)
+    apache2 (>= 0.0.0)
   mingw (2.0.1)
     seven_zip (>= 0.0.0)
   mysql (8.5.1)
