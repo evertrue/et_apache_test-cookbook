@@ -7,5 +7,5 @@ cookbook "php"	# Default php cookbook
 # Locked github repos for tagged or hash identified version
 #cookbook "apache2", git: "https://github.com/sous-chefs/apache2", tag: "v5.0.1"
 
-# Locally cookbook, if needed
+# Locally source controlled cookbook, if needed
 #cookbook "apache2", path: "cookbooks-local/apache2"
