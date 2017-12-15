@@ -2,7 +2,7 @@
 # Cookbook:: local-web_app
 # Spec:: default
 #
-# Copyright:: 2017, The Authors, All Rights Reserved.
+# Copyright:: 2017, Nico Kadel-Garcia, All Rights Reserved.
 
 require 'spec_helper'
 
