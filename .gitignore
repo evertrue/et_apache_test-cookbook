@@ -1,0 +1,6 @@
+*#*
+*.out
+*~
+berks-cookbooks/
+cookbooks/
+nodes/
