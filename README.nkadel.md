@@ -11,19 +11,20 @@ others can report the procedures.
 * Create chef-solo config in "solo.rb"
 * Create chef-client config in "client.rb", symlinked to "solo.rb", to provide
   working second config file for chef-solo. Typical format below.
-
-  * * for chef-solo to work by default
+  * # for chef-solo to work by default
   * cookbook_path	'/var/chef-solo/berks-cookbooks'
   * role_path	'/var/chef-solo/roles'
   * data_bag_path	'/var/chef-solo/data_bags'
   * environment_path	'/var/chef-solo/environments'
   * * Deploy via separate channel, do not keep in git repo
   * encrypted_data_bag_secret	'/etc/chef/encrypted_data_bag_secret'
-
 * Create node configuration templates under nodes-local/
-
-* nodes-local/$HOSTNAME.json	for node specific config
-* nodes-local/[template].json.tmpl	 for templates based on hostname
-* nodes-local/default.json.tmpl	 for default template
-
+  * nodes-local/$HOSTNAME.json	for node specific config
+  * nodes-local/[template].json.tmpl	 for templates based on hostname
+  * nodes-local/default.json.tmpl	 for default template
+* Create local cookboooks under cookbooks-local
+  * cookbooks-local/[cookbook]
+* Add local cookbooks to Berskfile
+* Add Makefile to assemble Berksfile.lock
+  * Use "make" to deploy node, activeate Berkshelf, and run "chef-solo"
 
