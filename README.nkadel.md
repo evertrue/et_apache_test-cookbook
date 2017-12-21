@@ -11,7 +11,6 @@ others can report the procedures.
 * Create chef-solo config in "solo.rb"
 * Create chef-client config in "client.rb", symlinked to "solo.rb", to provide
   working second config file for chef-solo. Typical format below.
-  * # for chef-solo to work by default
   * cookbook_path	'/var/chef-solo/berks-cookbooks'
   * role_path	'/var/chef-solo/roles'
   * data_bag_path	'/var/chef-solo/data_bags'
@@ -27,3 +26,4 @@ others can report the procedures.
 * Add local cookbooks to Berskfile
 * Add Makefile to assemble Berksfile.lock
   * Use "make" to deploy node, activeate Berkshelf, and run "chef-solo"
+
