@@ -1,0 +1,7 @@
+{
+    "packages-cookbook": ["php"],
+    "run_list": [
+	"recipe[php]",
+	"role[local-web_app]"
+    ]
+}
