@@ -1,0 +1,66 @@
+{
+  "variables": {
+    "base_image": "ubuntu:14.04",
+    "cookbook": "et_LAP",
+    "recipe": "default",
+    "version": "0.1.0",
+    "repository": "evertrue/apache2"
+  },
+  "builders": [
+    {
+    "type": "docker",
+    "image": "{{user `base_image`}}",
+    "run_command": ["-d", "-i", "-t", "{{.Image}}", "/bin/bash"],
+    "commit": "true",
+    "changes": [
+      "EXPOSE 80",
+      "CMD apachectl -D FOREGROUND"
+    ]
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get update",
+        "apt-get -y install software-properties-common",
+        "apt-add-repository ppa:brightbox/ruby-ng",
+        "apt-get update",
+        "apt-get -y install curl ruby2.3"
+      ]
+    },
+    {
+      "type": "chef-solo",
+      "run_list": ["{{user `cookbook`}}::{{user `recipe`}}"],
+      "cookbook_paths": ["./cookbooks"]
+    },
+    {
+      "type": "file",
+      "source": "{{user `cookbook`}}/test",
+      "destination": "/tmp"
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "gem install bundler --no-ri --no-rdoc",
+        "cd /tmp/test && bundle install --path=vendor && bundle exec rake spec"
+      ]
+    },
+    {
+      "type": "shell",
+      "inline": [
+        "gem uninstall --all",
+        "apt-get -y purge ruby2.3 curl chef",
+        "apt-get -y autoremove",
+        "apt-get clean"
+      ]
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "docker-tag",
+      "repository": "{{user `repository`}}",
+      "tag": "{{user `version`}}"
+    }
+  ]
+}
