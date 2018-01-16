@@ -1,0 +1,20 @@
+{
+  "variables": {
+    "base_image": "ubuntu:14.04",
+    "cookbook": "et_LAP",
+    "recipe": "default"
+  },
+  "builders": {
+    "type": "docker",
+    "image": "{{user `base_image`}}",
+    "run_command": ["-d", "-i", "-t", "{{.Image}}", "/bin/bash"],
+    "commit": "true"
+  },
+  "provisioners": [
+    "type": "chef-solo",
+    "run_list": ["{{user `cookbook`}}::{{user `recipe`}}"],
+    "cookbook_paths": ["./"]
+  ],
+  "post-processors": [
+  ]
+}
