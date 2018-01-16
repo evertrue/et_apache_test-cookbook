@@ -1,11 +1,12 @@
 name 'et_LAP'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Austin Johnson'
+maintainer_email 'austin.127.0.0.1@gmail.com'
 license 'All Rights Reserved'
-description 'Installs/Configures et_LAP'
-long_description 'Installs/Configures et_LAP'
+description 'Technical Exercise for LAMP Stack'
+long_description 'No MySQL'
 version '0.1.0'
 chef_version '>= 12.1' if respond_to?(:chef_version)
+depends 'apache2', '=3.1.0'
 
 # The `issues_url` points to the location where issues for this cookbook are
 # tracked.  A `View Issues` link will be displayed on this cookbook's page when

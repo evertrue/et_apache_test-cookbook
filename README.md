@@ -32,4 +32,14 @@ Tools necessary to complete this work.
 
 # Austin Johnson
 
-Init-commit.
+I went a little outside of what was asked for as much of the discussion was around docker & ECS.
+This to processes which I used in my current job. 
+Regarding Packer: What you lose in layering with packer-vs-dockerfile you gain with chef and being able to resue legacy code (Chef).
+I've also included a serverspec vs of the build that should valid the configuration (this can be expanded); I personally don't much care for provisioning validation (feel it causes more problems than it solves; gem failures/updates) and think systems should be more reliant of CI testing systems. Many of the attributes/config is largely arbitary.
+
+Depends:
+* Docker
+* Packer
+
+Usage:
+`cd ./et_LAP && berks vendor ../cookbooks && cd .. && /usr/bin/packer build docker_apache_file.json`
